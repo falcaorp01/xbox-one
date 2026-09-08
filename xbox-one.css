@@ -1,36 +1,18 @@
-/*
- FALCAO 88 - Italia Racing
- Gamepad Viewer - usar com "Edit CSS URL"
-*/
 
 html,
 body {
     margin: 0 !important;
     padding: 0 !important;
+    background: transparent !important;
     overflow: hidden !important;
-    background: transparent !important;
 }
 
-/*
- O parâmetro editcss adiciona a classe "edit" ao controle.
- Mantemos a geometria original do Xbox One para preservar
- analógicos, D-pad, ABXY, gatilhos e animações.
-*/
 .controller.edit {
-    background-image: url("https://falcaorp01.github.io/xbox-one/skin-controle-xbox-one.png.png") !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-size: 100% 100% !important;
-    background-color: transparent !important;
+    background: url("https://falcaorp01.github.io/xbox-one/skin-controle-xbox-one.png.png")
+                center center / 100% 100% no-repeat !important;
 }
 
-/* Mantém a arte também enquanto o controle estiver desconectado. */
-.controller.edit.disconnected {
-    background-image: url("https://falcaorp01.github.io/xbox-one/skin-controle-xbox-one.png.png") !important;
-}
-
-/* Fundo transparente para uso no OBS. */
-#gamepads,
-.gamepads {
-    background: transparent !important;
+.edit.disconnected {
+    background: url("https://falcaorp01.github.io/xbox-one/skin-controle-xbox-one.png.png")
+                center center / 100% 100% no-repeat !important;
 }
