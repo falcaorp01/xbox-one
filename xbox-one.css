@@ -1,65 +1,36 @@
 /*
- Xbox One - Skin Italia
- Gamepad Viewer
+ FALCAO 88 - Italia Racing
+ Gamepad Viewer - usar com "Edit CSS URL"
 */
 
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  overflow: hidden !important;
-  background: transparent !important;
-}
-
-.controller.custom {
-  position: fixed !important;
-  width: 784px !important;
-  height: 558px !important;
-  left: 50% !important;
-  top: 50% !important;
-  margin: 0 !important;
-  transform: translate(-50%, -50%) scale(.82) !important;
-  transform-origin: center center !important;
-
-  /* Substitui a arte principal do controle */
-  background: url("https://falcaorp01.github.io/xbox-one/Skin-Controle-Xbox-One(1).png")
-              center center / contain no-repeat !important;
-}
-
-/* Não adiciona uma segunda cópia da imagem */
-.controller.custom::before,
-.controller.custom::after {
-  display: none !important;
-  content: none !important;
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: transparent !important;
 }
 
 /*
- Mantém os elementos funcionais do GPV.
- Não escondemos sticks, ABXY, d-pad, start/back ou triggers.
+ O parâmetro editcss adiciona a classe "edit" ao controle.
+ Mantemos a geometria original do Xbox One para preservar
+ analógicos, D-pad, ABXY, gatilhos e animações.
 */
-.custom .sticks,
-.custom .stick,
-.custom .abxy,
-.custom .button,
-.custom .dpad,
-.custom .face,
-.custom .arrows,
-.custom .back,
-.custom .start,
-.custom .triggers,
-.custom .trigger,
-.custom .bumpers,
-.custom .bumper {
-  z-index: 10 !important;
+.controller.edit {
+    background-image: url("https://falcaorp01.github.io/xbox-one/Skin-Controle-Xbox-One(1).png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 100% 100% !important;
+    background-color: transparent !important;
 }
 
-/* A camada "quadrant" é apenas decoração do skin padrão. */
-.custom .quadrant {
-  background: transparent !important;
+/* Mantém a arte também enquanto o controle estiver desconectado. */
+.controller.edit.disconnected {
+    background-image: url("https://falcaorp01.github.io/xbox-one/Skin-Controle-Xbox-One(1).png") !important;
 }
 
-/* OBS/browser source */
-body {
-  background-color: rgba(0,0,0,0) !important;
+/* Fundo transparente para uso no OBS. */
+#gamepads,
+.gamepads {
+    background: transparent !important;
 }
