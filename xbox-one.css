@@ -1,65 +1,70 @@
 /*
  FALCAO 88 - Italia Racing
- Acabamento para Gamepad Viewer / OBS
+ Skin com controles funcionais do Gamepad Viewer
 */
 
-html, body {
+html,
+body {
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
     background: transparent !important;
 }
 
-/* Arte principal */
+/* Nova carcaça FALCAO com espaços livres para os controles */
 .controller.edit {
-    background: url("https://falcaorp01.github.io/xbox-one/skin-controle-xbox-one.png.png")
+    background: url("https://falcaorp01.github.io/xbox-one/skin-falcao-gpv.png.png")
                 center center / 100% 100% no-repeat !important;
 }
 
 .edit.disconnected {
-    background: url("https://falcaorp01.github.io/xbox-one/skin-controle-xbox-one.png.png")
+    background: url("https://falcaorp01.github.io/xbox-one/skin-falcao-gpv.png.png")
                 center center / 100% 100% no-repeat !important;
 }
 
-/*
- A arte já contém ABXY, D-pad, sticks, Xbox, start e back.
- Deixamos os elementos funcionais presentes, porém invisíveis
- no estado normal, evitando a duplicação visual.
-*/
-.edit .button,
+/* ANALÓGICOS: ficam visíveis e continuam seguindo o movimento do controle */
+.edit .sticks,
+.edit .stick {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ABXY funcionais por cima dos espaços vazios da arte */
+.edit .abxy,
+.edit .buttons,
+.edit .button {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Start / Back */
+.edit .arrows,
 .edit .back,
-.edit .start,
+.edit .select,
+.edit .start {
+    visibility: visible !important;
+}
+
+/* D-pad: mantém somente a resposta visual de pressionamento,
+   porque a cruz já está desenhada na arte */
 .edit .face {
     opacity: 0 !important;
 }
 
-.edit .stick {
-    opacity: 1 !important;
-}
-
-/* Ao pressionar ABXY, o GPV mostra o indicador sobre a arte. */
-.edit .button.pressed {
-    opacity: 0.72 !important;
-}
-
-/* D-pad pressionado */
-.edit .face.pressed {
-    opacity: 0.55 !important;
-}
-
-/*
- Os sticks continuam recebendo movimento do Gamepad Viewer.
- Um pequeno indicador aparece durante a interação.
-*/
-
-
-/* Start/back aparecem apenas quando pressionados */
-.edit .back.pressed,
-.edit .start.pressed {
+.edit .face.pressed,
+.edit .face[data-pressed="true"] {
     opacity: 0.65 !important;
 }
 
-/* Remove indicador de jogador que não faz parte da arte. */
+/* Gatilhos e bumpers continuam funcionais */
+.edit .triggers,
+.edit .trigger,
+.edit .bumpers,
+.edit .bumper {
+    visibility: visible !important;
+}
+
+/* Remove apenas o indicador de jogador */
 .edit .quadrant,
 .edit .p0,
 .edit .p1,
@@ -68,7 +73,7 @@ html, body {
     display: none !important;
 }
 
-/* Transparência para Browser Source do OBS */
+/* Fundo transparente para OBS */
 #gamepads,
 .gamepads {
     background: transparent !important;
