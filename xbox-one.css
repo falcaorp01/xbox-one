@@ -1,6 +1,6 @@
 /*
  FALCAO 88 - Italia Racing
- Skin com controles funcionais do Gamepad Viewer
+ Ajuste final: analógicos ativos, ABXY visíveis e gatilhos ocultos
 */
 
 html,
@@ -11,7 +11,7 @@ body {
     background: transparent !important;
 }
 
-/* Nova carcaça FALCAO com espaços livres para os controles */
+/* Carcaça personalizada */
 .controller.edit {
     background: url("https://falcaorp01.github.io/xbox-one/skin-falcao-gpv.png.png")
                 center center / 100% 100% no-repeat !important;
@@ -22,14 +22,14 @@ body {
                 center center / 100% 100% no-repeat !important;
 }
 
-/* ANALÓGICOS: ficam visíveis e continuam seguindo o movimento do controle */
+/* ANALÓGICOS - continuam visíveis e móveis */
 .edit .sticks,
 .edit .stick {
     opacity: 1 !important;
     visibility: visible !important;
 }
 
-/* ABXY funcionais por cima dos espaços vazios da arte */
+/* ABXY - mantém os botões funcionais */
 .edit .abxy,
 .edit .buttons,
 .edit .button {
@@ -37,7 +37,26 @@ body {
     visibility: visible !important;
 }
 
-/* Start / Back */
+/* Remove as manchas brancas dos gatilhos e bumpers */
+.edit .triggers,
+.edit .trigger,
+.edit .bumpers,
+.edit .bumper {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* D-pad: a cruz já está desenhada na skin */
+.edit .face {
+    opacity: 0 !important;
+}
+
+.edit .face.pressed,
+.edit .face[data-pressed="true"] {
+    opacity: 0.45 !important;
+}
+
+/* Mantém start/back utilizáveis */
 .edit .arrows,
 .edit .back,
 .edit .select,
@@ -45,26 +64,7 @@ body {
     visibility: visible !important;
 }
 
-/* D-pad: mantém somente a resposta visual de pressionamento,
-   porque a cruz já está desenhada na arte */
-.edit .face {
-    opacity: 0 !important;
-}
-
-.edit .face.pressed,
-.edit .face[data-pressed="true"] {
-    opacity: 0.65 !important;
-}
-
-/* Gatilhos e bumpers continuam funcionais */
-.edit .triggers,
-.edit .trigger,
-.edit .bumpers,
-.edit .bumper {
-    visibility: visible !important;
-}
-
-/* Remove apenas o indicador de jogador */
+/* Remove indicador de jogador */
 .edit .quadrant,
 .edit .p0,
 .edit .p1,
