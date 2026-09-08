@@ -1,55 +1,54 @@
 /*
- FALCAO 88 - Italia Racing
- Ajuste de posicionamento baseado no teste do GPV
+ FALCAO 88 - ITALIA RACING
+ GamePad Viewer
 */
 
-html, body {
+html,
+body {
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
     background: transparent !important;
 }
 
+/* NOVA SKIN */
 .controller.edit {
-    background: url("https://falcaorp01.github.io/xbox-one/skin-falcao-gpv.png.png")
-                center / 100% 100% no-repeat !important;
+    background-image: url("https://falcaorp01.github.io/xbox-one/skin-falcao-final.png.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 100% 100% !important;
+    background-color: transparent !important;
 }
 
-.edit.disconnected {
-    background: url("https://falcaorp01.github.io/xbox-one/skin-falcao-gpv.png.png")
-                center / 100% 100% no-repeat !important;
+.controller.edit.disconnected {
+    background-image: url("https://falcaorp01.github.io/xbox-one/skin-falcao-final.png.png") !important;
 }
 
-/* Analógicos: manter a mecânica/movimento nativo do GPV */
+/* ANALÓGICOS - NÃO ALTERAR MOVIMENTO */
 .edit .sticks,
 .edit .stick {
-    opacity: 1 !important;
+    display: block !important;
     visibility: visible !important;
+    opacity: 1 !important;
 }
 
-/* ABXY: desloca o conjunto para a direita e um pouco para cima,
-   alinhando-o aos quatro recortes da nova carcaça. */
+/* ABXY */
 .edit .abxy {
-    opacity: 1 !important;
+    display: block !important;
     visibility: visible !important;
+    opacity: 1 !important;
+
+    /* ajuste inicial para encaixar na nova arte */
     transform: translate(48px, -20px) !important;
 }
 
 .edit .button {
-    opacity: 1 !important;
+    display: block !important;
     visibility: visible !important;
+    opacity: 1 !important;
 }
 
-/* D-pad: mantém a mecânica, mas não desenha uma segunda cruz */
-.edit .face {
-    opacity: 0 !important;
-}
-.edit .face.pressed,
-.edit .face[data-pressed="true"] {
-    opacity: .40 !important;
-}
-
-/* Gatilhos/bumpers invisíveis para evitar as manchas claras */
+/* ESCONDE GATILHOS/BUMPERS VISUAIS */
 .edit .triggers,
 .edit .trigger,
 .edit .bumpers,
@@ -58,7 +57,17 @@ html, body {
     visibility: hidden !important;
 }
 
-/* Start/back continuam disponíveis */
+/* D-PAD FUNCIONAL, SEM SEGUNDA CRUZ VISÍVEL */
+.edit .face {
+    opacity: 0 !important;
+}
+
+.edit .face.pressed,
+.edit .face[data-pressed="true"] {
+    opacity: 0.45 !important;
+}
+
+/* START / BACK */
 .edit .arrows,
 .edit .back,
 .edit .select,
@@ -66,7 +75,7 @@ html, body {
     visibility: visible !important;
 }
 
-/* Sem indicador de jogador */
+/* REMOVE INDICADOR DE PLAYER */
 .edit .quadrant,
 .edit .p0,
 .edit .p1,
@@ -75,6 +84,7 @@ html, body {
     display: none !important;
 }
 
+/* TRANSPARÊNCIA PARA OBS */
 #gamepads,
 .gamepads {
     background: transparent !important;
