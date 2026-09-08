@@ -1,0 +1,63 @@
+/*
+  Xbox One custom skin for Gamepad Viewer
+  https://gamepadviewer.com/
+  Asset: skin-controle-xbox-one.png
+
+  This CSS keeps the Xbox One control layout and places the custom artwork
+  behind the interactive controls. Adjust --skin-width/height if your GPV
+  template uses a different canvas.
+*/
+
+:root {
+  --skin-width: 750px;
+  --skin-height: 500px;
+}
+
+.controller.custom {
+  width: var(--skin-width);
+  height: var(--skin-height);
+  background: transparent !important;
+  position: relative;
+}
+
+/* Custom artwork layer */
+.controller.custom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("skin-controle-xbox-one.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+/* Keep GPV's interactive elements above the artwork. */
+.controller.custom > * {
+  position: relative;
+  z-index: 2;
+}
+
+/*
+  Hide the original controller shell while preserving buttons/sticks.
+  These selectors cover the common Xbox skin shell classes.
+*/
+.controller.custom .controller,
+.controller.custom .xbox,
+.controller.custom .quadrant,
+.controller.custom .p0,
+.controller.custom .p1,
+.controller.custom .p2,
+.controller.custom .p3 {
+  background-color: transparent;
+}
+
+/* Transparent page for OBS/browser-source use. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  overflow: hidden;
+}
