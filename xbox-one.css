@@ -1,43 +1,55 @@
 /*
  FALCAO 88 - Italia Racing
- Ajuste final: analógicos ativos, ABXY visíveis e gatilhos ocultos
+ Ajuste de posicionamento baseado no teste do GPV
 */
 
-html,
-body {
+html, body {
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
     background: transparent !important;
 }
 
-/* Carcaça personalizada */
 .controller.edit {
     background: url("https://falcaorp01.github.io/xbox-one/skin-falcao-gpv.png.png")
-                center center / 100% 100% no-repeat !important;
+                center / 100% 100% no-repeat !important;
 }
 
 .edit.disconnected {
     background: url("https://falcaorp01.github.io/xbox-one/skin-falcao-gpv.png.png")
-                center center / 100% 100% no-repeat !important;
+                center / 100% 100% no-repeat !important;
 }
 
-/* ANALÓGICOS - continuam visíveis e móveis */
+/* Analógicos: manter a mecânica/movimento nativo do GPV */
 .edit .sticks,
 .edit .stick {
     opacity: 1 !important;
     visibility: visible !important;
 }
 
-/* ABXY - mantém os botões funcionais */
-.edit .abxy,
-.edit .buttons,
+/* ABXY: desloca o conjunto para a direita e um pouco para cima,
+   alinhando-o aos quatro recortes da nova carcaça. */
+.edit .abxy {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate(48px, -20px) !important;
+}
+
 .edit .button {
     opacity: 1 !important;
     visibility: visible !important;
 }
 
-/* Remove as manchas brancas dos gatilhos e bumpers */
+/* D-pad: mantém a mecânica, mas não desenha uma segunda cruz */
+.edit .face {
+    opacity: 0 !important;
+}
+.edit .face.pressed,
+.edit .face[data-pressed="true"] {
+    opacity: .40 !important;
+}
+
+/* Gatilhos/bumpers invisíveis para evitar as manchas claras */
 .edit .triggers,
 .edit .trigger,
 .edit .bumpers,
@@ -46,17 +58,7 @@ body {
     visibility: hidden !important;
 }
 
-/* D-pad: a cruz já está desenhada na skin */
-.edit .face {
-    opacity: 0 !important;
-}
-
-.edit .face.pressed,
-.edit .face[data-pressed="true"] {
-    opacity: 0.45 !important;
-}
-
-/* Mantém start/back utilizáveis */
+/* Start/back continuam disponíveis */
 .edit .arrows,
 .edit .back,
 .edit .select,
@@ -64,7 +66,7 @@ body {
     visibility: visible !important;
 }
 
-/* Remove indicador de jogador */
+/* Sem indicador de jogador */
 .edit .quadrant,
 .edit .p0,
 .edit .p1,
@@ -73,7 +75,6 @@ body {
     display: none !important;
 }
 
-/* Fundo transparente para OBS */
 #gamepads,
 .gamepads {
     background: transparent !important;
