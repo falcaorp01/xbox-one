@@ -29,9 +29,12 @@ html, body {
 .edit .button,
 .edit .back,
 .edit .start,
-.edit .face,
-.edit .stick {
+.edit .face {
     opacity: 0 !important;
+}
+
+.edit .stick {
+    opacity: 1 !important;
 }
 
 /* Ao pressionar ABXY, o GPV mostra o indicador sobre a arte. */
@@ -48,9 +51,7 @@ html, body {
  Os sticks continuam recebendo movimento do Gamepad Viewer.
  Um pequeno indicador aparece durante a interação.
 */
-.edit .stick.pressed {
-    opacity: 0.45 !important;
-}
+
 
 /* Start/back aparecem apenas quando pressionados */
 .edit .back.pressed,
