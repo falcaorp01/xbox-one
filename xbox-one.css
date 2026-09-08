@@ -1,12 +1,16 @@
+/*
+ FALCAO 88 - Italia Racing
+ Acabamento para Gamepad Viewer / OBS
+*/
 
-html,
-body {
+html, body {
     margin: 0 !important;
     padding: 0 !important;
-    background: transparent !important;
     overflow: hidden !important;
+    background: transparent !important;
 }
 
+/* Arte principal */
 .controller.edit {
     background: url("https://falcaorp01.github.io/xbox-one/skin-controle-xbox-one.png.png")
                 center center / 100% 100% no-repeat !important;
@@ -15,4 +19,56 @@ body {
 .edit.disconnected {
     background: url("https://falcaorp01.github.io/xbox-one/skin-controle-xbox-one.png.png")
                 center center / 100% 100% no-repeat !important;
+}
+
+/*
+ A arte já contém ABXY, D-pad, sticks, Xbox, start e back.
+ Deixamos os elementos funcionais presentes, porém invisíveis
+ no estado normal, evitando a duplicação visual.
+*/
+.edit .button,
+.edit .back,
+.edit .start,
+.edit .face,
+.edit .stick {
+    opacity: 0 !important;
+}
+
+/* Ao pressionar ABXY, o GPV mostra o indicador sobre a arte. */
+.edit .button.pressed {
+    opacity: 0.72 !important;
+}
+
+/* D-pad pressionado */
+.edit .face.pressed {
+    opacity: 0.55 !important;
+}
+
+/*
+ Os sticks continuam recebendo movimento do Gamepad Viewer.
+ Um pequeno indicador aparece durante a interação.
+*/
+.edit .stick.pressed {
+    opacity: 0.45 !important;
+}
+
+/* Start/back aparecem apenas quando pressionados */
+.edit .back.pressed,
+.edit .start.pressed {
+    opacity: 0.65 !important;
+}
+
+/* Remove indicador de jogador que não faz parte da arte. */
+.edit .quadrant,
+.edit .p0,
+.edit .p1,
+.edit .p2,
+.edit .p3 {
+    display: none !important;
+}
+
+/* Transparência para Browser Source do OBS */
+#gamepads,
+.gamepads {
+    background: transparent !important;
 }
