@@ -1,17 +1,17 @@
 /*
- FALCAO 88 - ITALIA RACING
- GamePad Viewer
+  FALCAO 88 - Italia Racing
+  GamePad Viewer - Xbox One
+  Use no campo "Edit CSS URL"
 */
 
-html,
-body {
+html, body {
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
     background: transparent !important;
 }
 
-/* NOVA SKIN */
+/* Carcaça personalizada */
 .controller.edit {
     background-image: url("https://falcaorp01.github.io/xbox-one/skin-falcao-final.png.png") !important;
     background-repeat: no-repeat !important;
@@ -24,7 +24,7 @@ body {
     background-image: url("https://falcaorp01.github.io/xbox-one/skin-falcao-final.png.png") !important;
 }
 
-/* ANALÓGICOS - NÃO ALTERAR MOVIMENTO */
+/* Mantém os analógicos nativos do GPV visíveis e móveis */
 .edit .sticks,
 .edit .stick {
     display: block !important;
@@ -32,50 +32,38 @@ body {
     opacity: 1 !important;
 }
 
-/* ABXY */
-.edit .abxy {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-
-    /* ajuste inicial para encaixar na nova arte */
-    transform: translate(48px, -20px) !important;
-}
-
+/* Mantém A/B/X/Y funcionais */
+.edit .abxy,
 .edit .button {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
 }
 
-/* ESCONDE GATILHOS/BUMPERS VISUAIS */
+/* D-pad funcional */
+.edit .dpad,
+.edit .face {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Start / Back */
+.edit .arrows,
+.edit .back,
+.edit .start,
+.edit .select {
+    visibility: visible !important;
+}
+
+/* Evita sobreposição visual dos gatilhos/bumpers sobre a arte */
 .edit .triggers,
 .edit .trigger,
 .edit .bumpers,
 .edit .bumper {
     opacity: 0 !important;
-    visibility: hidden !important;
 }
 
-/* D-PAD FUNCIONAL, SEM SEGUNDA CRUZ VISÍVEL */
-.edit .face {
-    opacity: 0 !important;
-}
-
-.edit .face.pressed,
-.edit .face[data-pressed="true"] {
-    opacity: 0.45 !important;
-}
-
-/* START / BACK */
-.edit .arrows,
-.edit .back,
-.edit .select,
-.edit .start {
-    visibility: visible !important;
-}
-
-/* REMOVE INDICADOR DE PLAYER */
+/* Remove indicador de jogador */
 .edit .quadrant,
 .edit .p0,
 .edit .p1,
@@ -84,7 +72,7 @@ body {
     display: none !important;
 }
 
-/* TRANSPARÊNCIA PARA OBS */
+/* Transparência para OBS */
 #gamepads,
 .gamepads {
     background: transparent !important;
