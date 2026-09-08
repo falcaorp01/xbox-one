@@ -1,26 +1,32 @@
 /*
-  Xbox One custom skin for Gamepad Viewer
-  https://gamepadviewer.com/
-  Asset: skin-controle-xbox-one.png
-
-  This CSS keeps the Xbox One control layout and places the custom artwork
-  behind the interactive controls. Adjust --skin-width/height if your GPV
-  template uses a different canvas.
+  Xbox One - Skin Italia
+  Ajuste de enquadramento para Gamepad Viewer
 */
 
-:root {
-  --skin-width: 750px;
-  --skin-height: 500px;
-}
-
-.controller.custom {
-  width: var(--skin-width);
-  height: var(--skin-height);
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
   background: transparent !important;
-  position: relative;
 }
 
-/* Custom artwork layer */
+/* Centraliza e reduz o controle para caber inteiro na tela */
+.controller.custom {
+  width: 700px !important;
+  height: 552px !important;
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  margin: 0 !important;
+  transform: translate(-50%, -50%) scale(0.82) !important;
+  transform-origin: center center !important;
+  background: transparent !important;
+}
+
+/* Arte personalizada */
 .controller.custom::before {
   content: "";
   position: absolute;
@@ -33,16 +39,13 @@
   background-size: contain;
 }
 
-/* Keep GPV's interactive elements above the artwork. */
+/* Mantém os controles do GPV acima da arte */
 .controller.custom > * {
   position: relative;
   z-index: 2;
 }
 
-/*
-  Hide the original controller shell while preserving buttons/sticks.
-  These selectors cover the common Xbox skin shell classes.
-*/
+/* Remove apenas fundos da carcaça original */
 .controller.custom .controller,
 .controller.custom .xbox,
 .controller.custom .quadrant,
@@ -50,14 +53,5 @@
 .controller.custom .p1,
 .controller.custom .p2,
 .controller.custom .p3 {
-  background-color: transparent;
-}
-
-/* Transparent page for OBS/browser-source use. */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background: transparent !important;
-  overflow: hidden;
+  background-color: transparent !important;
 }
